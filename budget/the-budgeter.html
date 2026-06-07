@@ -13,17 +13,17 @@
   --text:#1C1A18;--text2:#6B6760;--text3:#A09D98;
   --border:rgba(0,0,0,0.09);--border2:rgba(0,0,0,0.16);
   --radius:10px;--radius-lg:16px;--radius-xl:20px;
-
+ 
   /* Account colors — each account owns a hue */
   --spend:#2F54EB;       --spend-bg:#EEF2FF;   --spend-border:#C5D0FF; --spend-mid:#1D3FBF;
   --living:#0A9B8A;      --living-bg:#E6F7F5;  --living-border:#80D9D1;--living-mid:#087A6D;
   --sav:#C07B00;         --sav-bg:#FDF3DC;     --sav-border:#F0CC7C;   --sav-mid:#9A6300;
-
+ 
   /* Status */
   --ok:#1D9E75;--ok-bg:#E1F5EE;--ok-border:#9FE1CB;
   --warn:#C07B00;--warn-bg:#FDF3DC;
   --danger:#D63E3E;--danger-bg:#FDECEC;
-
+ 
   /* Section accents */
   --c-transfer:#2F54EB;
   --c-housing:#0A9B8A;
@@ -46,18 +46,18 @@
     --danger-bg:#3D0D0D;
   }
 }
-
+ 
 html{-webkit-text-size-adjust:100%}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:1rem 1rem 2rem}
 .app{max-width:700px;margin:0 auto}
-
+ 
 /* ── Header ── */
 .top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem;gap:8px;flex-wrap:wrap}
 .top-bar h1{font-size:18px;font-weight:600;letter-spacing:-.3px;color:var(--text)}
 .top-bar h1 span{color:var(--text3);font-weight:400}
 .saved-badge{font-size:11px;font-family:'DM Mono',monospace;color:var(--ok);padding:3px 10px;border:1px solid var(--ok-border);border-radius:20px;opacity:0;transition:opacity .3s;background:var(--ok-bg)}
 .saved-badge.show{opacity:1}
-
+ 
 /* ── Account cards ── */
 .acct-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
 @media(max-width:520px){.acct-grid{grid-template-columns:1fr}}
@@ -103,7 +103,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .acct-card.living .ac-after{color:var(--living-mid)}
 .acct-card.sav .ac-after{color:var(--sav-mid)}
 .ac-after.neg{color:var(--danger)!important}
-
+ 
 /* ── Spending summary bar ── */
 .weekly-bar{background:var(--bg2);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:12px;display:flex;align-items:center;border:1px solid var(--border)}
 .wb-col{flex:1;padding:0 .25rem}
@@ -113,7 +113,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .wr{font-size:28px;font-weight:600;letter-spacing:-.5px;font-family:'DM Mono',monospace;color:var(--ok)}
 .wr.wr-sm{font-size:22px;color:var(--text2)}
 .wr.neg{color:var(--danger)!important}
-
+ 
 /* ── Paycheck panel ── */
 .pay-panel{background:var(--bg2);border-radius:var(--radius-lg);border:1px solid var(--border);margin-bottom:12px;overflow:hidden}
 .pay-panel-hdr{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.2rem;cursor:pointer;user-select:none;gap:10px;flex-wrap:wrap}
@@ -141,7 +141,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .pc-val.danger-col{color:var(--danger)}
 .pc-val.ok-col{color:var(--ok)}
 .pc-val.warn-col{color:var(--warn)}
-
+ 
 /* ── Sections ── */
 .sections{display:flex;flex-direction:column;gap:8px}
 .section{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
@@ -157,9 +157,9 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .sec-body{display:none;padding:.5rem 1.2rem .9rem;border-top:1px solid var(--border)}
 .sec-body.open{display:block}
 .ref-note{font-size:11px;color:var(--text3);padding:6px 0 8px;font-style:italic}
-
+ 
 /* ── Line items ── */
-.li{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--border)}
+.li{display:grid;grid-template-columns:auto 1fr auto auto auto;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--border)}
 .li:last-child{border-bottom:none}
 .li-left .li-name{font-size:13px;font-weight:500;color:var(--text)}
 .li-left .li-note{font-size:11px;color:var(--text3);margin-top:1px}
@@ -168,14 +168,25 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .li input[type=number]{width:90px;text-align:right;font-size:13px;font-family:'DM Mono',monospace;font-weight:500;background:var(--bg);color:var(--text);border:1px solid var(--border2);border-radius:8px;padding:5px 8px;outline:none}
 .li input[type=number]:focus{border-color:var(--spend)}
 .li .ref-amt{font-size:13px;font-family:'DM Mono',monospace;color:var(--text2)}
-
+ 
+/* ── Pay checkbox ── */
+.pay-cb-wrap{display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pay-cb{appearance:none;-webkit-appearance:none;width:17px;height:17px;border-radius:5px;border:1.5px solid var(--border2);background:var(--bg);cursor:pointer;position:relative;transition:background .12s,border-color .12s;flex-shrink:0}
+.pay-cb:hover{border-color:var(--ok)}
+.pay-cb:checked{background:var(--ok);border-color:var(--ok)}
+.pay-cb:checked::after{content:"";position:absolute;left:4px;top:1.5px;width:5px;height:9px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg)}
+.li.paid .li-name{opacity:.45;text-decoration:line-through;text-decoration-color:var(--ok);color:var(--ok)}
+.li.paid .li-note{opacity:.3}
+.li.paid input[type=number]{opacity:.35}
+.li.paid .ref-amt{opacity:.35}
+ 
 /* icon buttons */
 .icon-btn{background:none;border:none;cursor:pointer;color:var(--text3);font-size:15px;padding:3px 2px;opacity:.5;line-height:1;transition:opacity .12s}
 .icon-btn:hover{opacity:1}
 .icon-btn.faded{opacity:.15}
 .icon-btn.del:hover{color:var(--danger);opacity:1}
 .icon-btn.invisible{visibility:hidden}
-
+ 
 /* toggle switch */
 .sw{position:relative;width:34px;height:18px;flex-shrink:0;display:inline-block}
 .sw input{opacity:0;width:0;height:0;position:absolute}
@@ -183,7 +194,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .sw input:checked+.sl{background:var(--ok)}
 .sw .sl:before{content:"";position:absolute;width:12px;height:12px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.18s}
 .sw input:checked+.sl:before{transform:translateX(16px)}
-
+ 
 /* add row */
 .add-row{display:flex;align-items:center;gap:6px;margin-top:10px;flex-wrap:wrap}
 .add-row input[type=text]{flex:1;min-width:110px;font-size:12px;background:var(--bg);color:var(--text);border:1px solid var(--border2);border-radius:8px;padding:6px 9px;outline:none}
@@ -191,7 +202,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .add-row input:focus{border-color:var(--spend)}
 .add-row button{font-size:12px;padding:6px 12px;background:transparent;border:1px solid var(--border2);border-radius:8px;color:var(--text2);cursor:pointer;white-space:nowrap;font-weight:500}
 .add-row button:hover{background:var(--bg3);color:var(--text)}
-
+ 
 /* ── Sync / snapshot ── */
 .sync-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;flex-wrap:wrap}
 .sync-status{font-size:11px;font-family:'DM Mono',monospace;color:var(--text3);display:flex;align-items:center;gap:6px}
@@ -237,7 +248,7 @@ footer{font-size:11px;color:var(--text3);text-align:center;margin-top:1.5rem;pad
 </head>
 <body>
 <div class="app">
-
+ 
   <div class="top-bar">
     <h1>Budget <span>/ living view</span></h1>
     <span class="saved-badge" id="saved-badge">✓ Saved</span>
@@ -251,7 +262,7 @@ footer{font-size:11px;color:var(--text3);text-align:center;margin-top:1.5rem;pad
 <button class="btn-snap" id="snap-btn" onclick="openSnapModal()">📋 Save snapshot</button>
     </div>
   </div>
-
+ 
   <!-- Account Cards -->
   <div class="acct-grid">
     <!-- Spending -->
@@ -292,7 +303,7 @@ footer{font-size:11px;color:var(--text3);text-align:center;margin-top:1.5rem;pad
       <div class="ac-after" id="sav-after" style="display:none">—</div>
     </div>
   </div>
-
+ 
   <!-- Spending summary bar -->
   <div class="weekly-bar">
     <div class="wb-col">
@@ -307,7 +318,7 @@ footer{font-size:11px;color:var(--text3);text-align:center;margin-top:1.5rem;pad
       <div class="wr wr-sm" id="weekly-big">$0.00</div>
     </div>
   </div>
-
+ 
   <!-- Paycheck panel (collapsible) -->
   <div class="pay-panel" id="pay-panel">
     <div class="pay-panel-hdr" onclick="togglePayPanel()">
@@ -339,10 +350,10 @@ footer{font-size:11px;color:var(--text3);text-align:center;margin-top:1.5rem;pad
       <div class="pay-summary" id="pay-summary"></div>
     </div>
   </div>
-
+ 
   <!-- Budget Sections -->
   <div class="sections" id="sections"></div>
-
+ 
   <footer>Last synced: <span id="last-synced">—</span></footer>
   <!-- Snapshot label modal -->
   <div class="snap-modal-overlay" id="snap-modal" style="display:none">
@@ -375,12 +386,12 @@ footer{font-size:11px;color:var(--text3);text-align:center;margin-top:1.5rem;pad
     </div>
   </div>
 </div>
-
+ 
 <script>
 // ─── Period math ───────────────────────────────────────────────────────────
 const BASE_PAY = new Date('2026-06-05'); // next payday (Thursday)
 let pOff = 0;
-
+ 
 function payDate(off){
   const d=new Date(BASE_PAY);
   d.setDate(d.getDate()+off*14);
@@ -395,7 +406,7 @@ function updatePeriodLabel(){
   const end=new Date(pd);end.setDate(end.getDate()+13);
   document.getElementById('pay-period-label').textContent=fmt(pd)+' – '+fmt(end);
 }
-
+ 
 // ─── Sections definition ───────────────────────────────────────────────────
 const SECTIONS=[
   {id:'transfers',label:'Account transfers',color:'var(--c-transfer)',addable:true,items:[
@@ -436,11 +447,12 @@ const SECTIONS=[
   ]},
   {id:'misc',label:'Miscellaneous',color:'var(--c-misc)',addable:true,items:[]},
 ];
-
+ 
 // ─── State ─────────────────────────────────────────────────────────────────
 let state={};
-let paycheckApplied=false; // whether paycheck amounts are factored into projected balances
-
+// paid: in-memory only, keyed by item id, resets on page load
+const paid={};
+ 
 function initState(){
   SECTIONS.forEach(s=>{
     state[s.id]=state[s.id]||{};
@@ -450,22 +462,38 @@ function initState(){
   });
 }
 initState();
-
+ 
 function getAmt(sid,iid){return state[sid]?.[iid]?.amount??0;}
 function isOn(sid,iid){return state[sid]?.[iid]?.enabled!==false;}
-
+ 
 function secTotal(sec){
   if(sec.reference) return 0;
   let t=0;
   sec.items.forEach(it=>{if(isOn(sec.id,it.id)) t+=getAmt(sec.id,it.id);});
   return t;
 }
-
+ 
+// ─── Pay checkbox logic ─────────────────────────────────────────────────────
+function togglePaid(itemId, amt, checked){
+  const input = document.getElementById('spend-start');
+  let cur = parseFloat(input.value) || 0;
+  if(checked){
+    paid[itemId] = true;
+    cur = cur - amt;
+  } else {
+    delete paid[itemId];
+    cur = cur + amt;
+  }
+  input.value = cur.toFixed(2);
+  save();
+  recalc();
+}
+ 
 // ─── Paycheck panel ────────────────────────────────────────────────────────
 function togglePayPanel(){
   document.getElementById('pay-panel').classList.toggle('open');
 }
-
+ 
 function applyPaycheck(){
   const gross=parseFloat(document.getElementById('gross').value)||0;
   if(!gross) return;
@@ -478,12 +506,12 @@ function applyPaycheck(){
   document.getElementById('pay-panel-sum').textContent='✓ applied '+fm(gross);
   document.getElementById('pay-panel').classList.remove('open');
 }
-
+ 
 // ─── Recalc ────────────────────────────────────────────────────────────────
 function recalc(){
   const gross=parseFloat(document.getElementById('gross').value)||0;
   let alloc=0,livingOut=0,savOut=0;
-
+ 
   SECTIONS.forEach(sec=>{
     const tot=secTotal(sec);
     const el=document.getElementById('sub-'+sec.id);
@@ -496,16 +524,16 @@ function recalc(){
       if(it.affectsSavings) savOut+=a;
     });
   });
-
+ 
   const spendStart=parseFloat(document.getElementById('spend-start').value)||0;
   const livingStart=parseFloat(document.getElementById('living-start').value)||0;
   const savStart=parseFloat(document.getElementById('sav-start').value)||0;
-
+ 
   // Current balances (= what's entered)
   setBalance('spend-bal', spendStart, 'spend');
   setBalance('living-bal', livingStart, 'living');
   setBalance('sav-bal', savStart, 'sav');
-
+ 
   // Projected "after" values — only show if paycheck panel has a value
   const showProjections = gross > 0;
   const spendProjections=document.getElementById('spend-projections');
@@ -515,17 +543,17 @@ function recalc(){
   const livingAfterLbl=document.getElementById('living-after-lbl');
   const savAfterEl=document.getElementById('sav-after');
   const savAfterLbl=document.getElementById('sav-after-lbl');
-
+ 
   if(showProjections){
     const spA=spendStart+gross-alloc;
     const spW=spA/2;
     const lvA=livingStart+livingOut;
     const svA=savStart+savOut;
-
+ 
     spendProjections.style.display='';
     spendAfterEl.textContent=fm(spA); spendAfterEl.className='ac-after'+(spA<0?' neg':'');
     spendWeeklyEl.textContent=fm(spW); spendWeeklyEl.className='ac-after'+(spW<0?' neg':'');
-
+ 
     livingAfterEl.textContent=fm(lvA); livingAfterEl.className='ac-after'+(lvA<0?' neg':''); livingAfterEl.style.display='';
     livingAfterLbl.style.display='';
     savAfterEl.textContent=fm(svA); savAfterEl.className='ac-after'+(svA<0?' neg':''); savAfterEl.style.display='';
@@ -541,7 +569,7 @@ function recalc(){
     document.getElementById('pay-summary').innerHTML='';
     document.getElementById('pay-panel-sum').textContent='not applied';
   }
-
+ 
   // Summary bar — available to spend + weekly
   const baseAvail = showProjections ? spendStart+gross-alloc : spendStart-alloc;
   const wkAmt = baseAvail/2;
@@ -552,13 +580,13 @@ function recalc(){
   wEl.textContent=fm(wkAmt);
   wEl.className='wr wr-sm'+(wkAmt<0?' neg':'');
 }
-
+ 
 function setBalance(id, val, type){
   const el=document.getElementById(id);
   el.textContent=fm(val);
   el.className='ac-balance'+(val<0?' neg':'');
 }
-
+ 
 function buildPaySummary(gross,alloc,rem,wk){
   const c=document.getElementById('pay-summary');
   c.innerHTML='';
@@ -574,17 +602,17 @@ function buildPaySummary(gross,alloc,rem,wk){
     c.appendChild(d);
   });
 }
-
+ 
 // ─── Google Sheets sync ────────────────────────────────────────────────────
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwEHmFvULIiqHpBphuR5pkMkfmIeHIo0ZS__nq9tWkTCraY-avsYkKIy4ikTBH0lCvZzg/exec';
-
+ 
 function setSyncStatus(state, label){
   const dot=document.getElementById('sync-dot');
   const lbl=document.getElementById('sync-label');
   dot.className='sync-dot '+(state||'');
   lbl.textContent=label;
 }
-
+ 
 function openSetup(){
   document.getElementById('script-url-input').value=SCRIPT_URL;
   document.getElementById('setup-modal').style.display='flex';
@@ -594,7 +622,7 @@ function saveScriptUrl(){
   // URL is now hardcoded — this function is a no-op kept for compatibility
   closeSetup();
 }
-
+ 
 function buildPayload(){
   return {
     gross: document.getElementById('gross').value,
@@ -606,16 +634,14 @@ function buildPayload(){
     customItems: SECTIONS.filter(s=>s.addable).map(s=>({sid:s.id,items:s.items.filter(i=>i.deletable)}))
   };
 }
-
+ 
 function markSynced(){
   document.getElementById('last-synced').textContent=new Date().toLocaleTimeString();
 }
-
+ 
 async function syncState(){
   setSyncStatus('saving','Saving…');
   try{
-    // no-cors: Apps Script doesn't return CORS headers on POST.
-    // Fire-and-forget — we can't read the response body in no-cors mode.
     fetch(SCRIPT_URL, {
       method:'POST',
       mode:'no-cors',
@@ -630,7 +656,7 @@ async function syncState(){
     return false;
   }
 }
-
+ 
 async function loadFromSheets(){
   setSyncStatus('warn','Loading from Sheets…');
   try{
@@ -649,7 +675,7 @@ async function loadFromSheets(){
     return false;
   }
 }
-
+ 
 // ─── Snapshot modal ─────────────────────────────────────────────────────────
 function openSnapModal(){
   if(!SCRIPT_URL){
@@ -662,14 +688,13 @@ function openSnapModal(){
 }
 function closeSnapModal(){ document.getElementById('snap-modal').style.display='none'; }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeSnapModal(); closeSetup(); }});
-
+ 
 async function confirmSnapshot(){
   const note=document.getElementById('snap-note').value.trim();
   closeSnapModal();
   const btn=document.getElementById('snap-btn');
   btn.disabled=true; btn.textContent='Saving…';
   try{
-    // Collect calculated values for the snapshot row
     const gross=parseFloat(document.getElementById('gross').value)||0;
     let alloc=0,livingOut=0,savOut=0;
     SECTIONS.forEach(sec=>{
@@ -687,7 +712,7 @@ async function confirmSnapshot(){
     const pd=payDate(pOff);
     const periodEnd=new Date(pd); periodEnd.setDate(periodEnd.getDate()+13);
     const avail=spendStart+(gross||0)-alloc;
-
+ 
     const snapshot={
       note,
       timestamp: new Date().toISOString(),
@@ -700,7 +725,6 @@ async function confirmSnapshot(){
       totalAllocated: alloc,
       availableToSpend: avail,
       weeklySpending: avail/2,
-      // Section totals
       transfers: secTotal(SECTIONS.find(s=>s.id==='transfers')),
       creditCards: secTotal(SECTIONS.find(s=>s.id==='cc')),
       utilities: secTotal(SECTIONS.find(s=>s.id==='utilities')),
@@ -708,7 +732,6 @@ async function confirmSnapshot(){
       personal: secTotal(SECTIONS.find(s=>s.id==='personal')),
       savings: secTotal(SECTIONS.find(s=>s.id==='savings')),
       misc: secTotal(SECTIONS.find(s=>s.id==='misc')),
-      // All line item amounts (enabled only)
       lineItems: buildLineItemsFlat(),
     };
     await fetch(SCRIPT_URL, {
@@ -724,7 +747,7 @@ async function confirmSnapshot(){
     alert('Snapshot failed. Check your Sheets connection.');
   }
 }
-
+ 
 function buildLineItemsFlat(){
   const out={};
   SECTIONS.forEach(sec=>{
@@ -735,7 +758,7 @@ function buildLineItemsFlat(){
   });
   return out;
 }
-
+ 
 // ─── Save/Load ─────────────────────────────────────────────────────────────
 let saveTimer;
 function save(){
@@ -746,11 +769,10 @@ function save(){
     const b=document.getElementById('saved-badge');
     b.classList.add('show');
     setTimeout(()=>b.classList.remove('show'),2000);
-    // Fire-and-forget sync to Sheets
     syncState();
   },400);
 }
-
+ 
 function applyLoadedData(data){
   if(data.gross!=null) document.getElementById('gross').value=data.gross;
   if(data.spendStart!=null) document.getElementById('spend-start').value=data.spendStart;
@@ -779,22 +801,20 @@ function applyLoadedData(data){
     });
   }
 }
-
+ 
 function loadSaved(){
-  // If Sheets connected, try to load from there first; localStorage is fallback
   if(SCRIPT_URL){
     setSyncStatus('warn','Connecting…');
     loadFromSheets().then(ok=>{
       if(ok){ buildUI(); updatePeriodLabel(); return; }
-      // Sheets failed — fall back to localStorage
       loadFromLocalStorage();
       buildUI(); updatePeriodLabel();
     });
-    return; // async path — buildUI/updatePeriodLabel called in .then()
+    return;
   }
   loadFromLocalStorage();
 }
-
+ 
 function loadFromLocalStorage(){
   try{
     const raw=localStorage.getItem('paycheck-budget-v3')||localStorage.getItem('paycheck-budget-v2');
@@ -804,7 +824,7 @@ function loadFromLocalStorage(){
     setSyncStatus('','localStorage only');
   }catch(e){ console.warn('Load error',e); }
 }
-
+ 
 // ─── UI Build ──────────────────────────────────────────────────────────────
 function buildUI(){
   const container=document.getElementById('sections');
@@ -812,7 +832,7 @@ function buildUI(){
   SECTIONS.forEach(sec=>{
     const wrap=document.createElement('div');
     wrap.className='section'; wrap.id='sec-'+sec.id;
-
+ 
     const hdr=document.createElement('div');
     hdr.className='sec-hdr open';
     hdr.innerHTML=`<div class="sec-left"><span class="sec-dot" style="background:${sec.color}"></span><span class="sec-name">${sec.label}</span></div><div class="sec-right-row"><span class="sec-total" id="sub-${sec.id}">$0.00</span><span class="sec-chev">⌄</span></div>`;
@@ -820,7 +840,7 @@ function buildUI(){
     bod.className='sec-body open';
     hdr.onclick=()=>{hdr.classList.toggle('open');bod.classList.toggle('open');};
     wrap.appendChild(hdr);
-
+ 
     if(sec.reference){
       const n=document.createElement('div');
       n.className='ref-note';
@@ -828,8 +848,7 @@ function buildUI(){
       bod.appendChild(n);
     }
     sec.items.forEach(it=>bod.appendChild(makeRow(sec,it)));
-
-    // Every section gets an +Add row
+ 
     const ar=document.createElement('div'); ar.className='add-row';
     ar.innerHTML=`<input type="text" id="new-n-${sec.id}" placeholder="Description"><input type="number" id="new-a-${sec.id}" placeholder="0.00" min="0" step="0.01"><button onclick="addExtra('${sec.id}')">+ Add</button>`;
     bod.appendChild(ar);
@@ -838,49 +857,84 @@ function buildUI(){
   });
   recalc();
 }
-
-function makeRow(sec,it){
-  const on=isOn(sec.id,it.id);
-  const row=document.createElement('div');
-  row.className='li'+(on?'':' excluded');
-  row.id='row-'+it.id;
-
-  const nd=document.createElement('div'); nd.className='li-left';
-  nd.innerHTML=`<div class="li-name">${it.name}</div>${it.note?`<div class="li-note">${it.note}</div>`:''}`;
-
+ 
+function makeRow(sec, it){
+  const on = isOn(sec.id, it.id);
+  const isPaid = !!paid[it.id];
+  const row = document.createElement('div');
+  row.className = 'li' + (on ? '' : ' excluded') + (isPaid ? ' paid' : '');
+  row.id = 'row-' + it.id;
+ 
+  // ── Col 1: pay checkbox (non-reference only) ──
+  const cbWrap = document.createElement('div');
+  cbWrap.className = 'pay-cb-wrap';
+  if(!sec.reference){
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.className = 'pay-cb';
+    cb.checked = isPaid;
+    cb.title = 'Mark as paid — deducts from Spending balance';
+    cb.onchange = () => {
+      const amt = getAmt(sec.id, it.id);
+      togglePaid(it.id, amt, cb.checked);
+      row.classList.toggle('paid', cb.checked);
+    };
+    cbWrap.appendChild(cb);
+  }
+ 
+  // ── Col 2: name + note ──
+  const nd = document.createElement('div'); nd.className = 'li-left';
+  nd.innerHTML = `<div class="li-name">${it.name}</div>${it.note ? `<div class="li-note">${it.note}</div>` : ''}`;
+ 
+  // ── Col 3: amount input or ref display ──
   let ctrl;
   if(sec.reference){
-    ctrl=document.createElement('span');
-    ctrl.className='ref-amt';
-    ctrl.textContent=fm(it.amount);
+    ctrl = document.createElement('span');
+    ctrl.className = 'ref-amt';
+    ctrl.textContent = fm(it.amount);
   } else {
-    ctrl=document.createElement('input'); ctrl.type='number';
-    ctrl.value=(state[sec.id]?.[it.id]?.amount??it.amount??0);
-    ctrl.min='0'; ctrl.step='0.01';
-    if(it.placeholder) ctrl.placeholder=it.placeholder;
-    ctrl.oninput=()=>{state[sec.id][it.id].amount=parseFloat(ctrl.value)||0; save(); recalc();};
+    ctrl = document.createElement('input'); ctrl.type = 'number';
+    ctrl.value = (state[sec.id]?.[it.id]?.amount ?? it.amount ?? 0);
+    ctrl.min = '0'; ctrl.step = '0.01';
+    if(it.placeholder) ctrl.placeholder = it.placeholder;
+    ctrl.oninput = () => {
+      state[sec.id][it.id].amount = parseFloat(ctrl.value) || 0;
+      save(); recalc();
+    };
   }
-
-  const eyeBtn=document.createElement('button');
-  eyeBtn.className='icon-btn'+(on?'':' faded');
-  eyeBtn.title=on?'Exclude from total':'Include in total';
-  eyeBtn.textContent=on?'👁':'🚫';
+ 
+  // ── Col 4: eye toggle ──
+  const eyeBtn = document.createElement('button');
+  eyeBtn.className = 'icon-btn' + (on ? '' : ' faded');
+  eyeBtn.title = on ? 'Exclude from total' : 'Include in total';
+  eyeBtn.textContent = on ? '👁' : '🚫';
   if(!sec.reference){
-    eyeBtn.onclick=()=>{state[sec.id][it.id].enabled=!state[sec.id][it.id].enabled; save(); buildUI();};
+    eyeBtn.onclick = () => { state[sec.id][it.id].enabled = !state[sec.id][it.id].enabled; save(); buildUI(); };
   } else { eyeBtn.classList.add('invisible'); }
-
-  const delBtn=document.createElement('button');
-  delBtn.className='icon-btn del';
-  delBtn.title='Remove';
-  delBtn.textContent='🗑';
+ 
+  // ── Col 5: delete ──
+  const delBtn = document.createElement('button');
+  delBtn.className = 'icon-btn del';
+  delBtn.title = 'Remove';
+  delBtn.textContent = '🗑';
   if(it.deletable){
-    delBtn.onclick=()=>{const s=SECTIONS.find(x=>x.id===sec.id); s.items=s.items.filter(x=>x.id!==it.id); delete state[sec.id][it.id]; save(); buildUI();};
+    delBtn.onclick = () => {
+      const s = SECTIONS.find(x => x.id === sec.id);
+      s.items = s.items.filter(x => x.id !== it.id);
+      delete state[sec.id][it.id];
+      delete paid[it.id];
+      save(); buildUI();
+    };
   } else { delBtn.classList.add('invisible'); }
-
-  row.appendChild(nd); row.appendChild(ctrl); row.appendChild(eyeBtn); row.appendChild(delBtn);
+ 
+  row.appendChild(cbWrap);
+  row.appendChild(nd);
+  row.appendChild(ctrl);
+  row.appendChild(eyeBtn);
+  row.appendChild(delBtn);
   return row;
 }
-
+ 
 function addExtra(secId){
   const nEl=document.getElementById('new-n-'+secId);
   const aEl=document.getElementById('new-a-'+secId);
@@ -894,11 +948,8 @@ function addExtra(secId){
   nEl.value=''; aEl.value='';
   save(); buildUI();
 }
-
+ 
 // ─── Init ──────────────────────────────────────────────────────────────────
-// If connected to Sheets, loadSaved() handles buildUI/updatePeriodLabel async.
-// If localStorage-only, we call them synchronously here.
-// Always try Sheets first (URL is hardcoded); falls back to localStorage if offline
 loadSaved();
 </script>
 </body>
